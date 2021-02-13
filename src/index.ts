@@ -1,7 +1,10 @@
-const world = 'world';
-
-export function hello(word: string = world): string {
-    return `Hello ${word}! `;
-}
-
-console.log(hello("Dickhead"));
+require('dotenv').config(); // Recommended way of loading dotenv
+import container from "./inversify.config";
+import {TYPES} from "./types";
+import {Bot} from "./bot";
+let bot = container.get<Bot>(TYPES.Bot);
+bot.listen().then(() => {
+    console.log('Logged in!')
+}).catch((error) => {
+    console.log('Oh no! ', error)
+});

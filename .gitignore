@@ -1,1 +1,4 @@
 /node_modules/
+/src/bot.js
+/src/inversify.config.js
+/src/types.js
