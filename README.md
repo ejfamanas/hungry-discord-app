@@ -1,6 +1,11 @@
 # hungry-discord-app
 Discord App for Hungry Guy
 
+Requirements:
+- Discord server
+- Discord bot
+- Add bot to chatroom you want it to operate in
+
 Install the following on your machine:
 - git
 - npm
@@ -17,6 +22,7 @@ After everything is installed:
 - get the copy link from the clone button on this repo
 - in a command line, run "git clone (copy-paste the link here)"
 - in a command line, run "npm install" (this will install all the dependencies)
+- add a .env file to your root directory and put your bot token in it
 
 To run:
-- for now, in a command line, run "npm run dev" and that will run the output of index.ts
+- for now, in a command line, run "npm star" and that will run the bot
