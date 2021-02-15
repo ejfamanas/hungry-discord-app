@@ -25,4 +25,4 @@ After everything is installed:
 - add a .env file to your root directory and put your bot token in it
 
 To run:
-- for now, in a command line, run "npm star" and that will run the bot
+- for now, in a command line, run "npm start" and that will run the bot
