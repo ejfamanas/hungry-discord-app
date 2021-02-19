@@ -17,6 +17,12 @@ export class MessageResponder {
         if (this.pingFinder.isPing(message.content)) {
             return message.reply('pong!');
         }
+        if (message.content.includes("$whoami")) {
+            const {username} = message.author;
+            return message.reply(username === "fanman"
+                ? `${username} is the greatest`
+                : `${username} is also the greatest`);
+        }
         return Promise.reject();
     }
 }
