@@ -8,3 +8,9 @@ bot.listen().then(() => {
 }).catch((error) => {
     console.log('Oh no! ', error)
 });
+
+function render(): string {
+    return "Hello world";
+}
+
+render();
