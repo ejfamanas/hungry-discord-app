@@ -22,7 +22,7 @@
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "tsc -p tsconfig.json",
-    "watch": "tsc -p tsconfig.json -w",
+    "dev": "tsc -p tsconfig.json -w",
     "test": "mocha -r ts-node/register \"tests/**/*.spec.ts\""
   },
   "repository": {
