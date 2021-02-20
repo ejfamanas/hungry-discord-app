@@ -16,16 +16,18 @@ after_success:
   # build out each image
   - docker build -t efamanas/hungry-discord-app .
 
-deploy:
-  edge: true
-  provider: elasticbeanstalk
-  region: "eu-west-2"
-  app: "hungry"
-  env: "hungry-env"
-
-  bucket_name: "elasticbeanstalk-eu-west-2-334805761658"
-  bucket_path: "hungry"
-  on:
-    all_branches: true
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+# conf works using all branches hack
+# TODO: Nginx conf, docker compose conf, ship token
+#deploy:
+#  edge: true
+#  provider: elasticbeanstalk
+#  region: "eu-west-2"
+#  app: "hungry"
+#  env: "hungry-env"
+#
+#  bucket_name: "elasticbeanstalk-eu-west-2-334805761658"
+#  bucket_path: "hungry"
+#  on:
+#    all_branches: true
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
