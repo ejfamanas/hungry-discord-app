@@ -1,0 +1,30 @@
+# specify required permissions
+sudo: required
+services:
+  # specify required services
+  - docker
+
+before_install:
+  # set up container for test environment
+  - docker build -t efamanas/hungry-discord-app -f ./Dockerfile.dev .
+
+script:
+  # run tests
+  - docker run -e CI=true efamanas/hungry-discord-app npm test -- --coveragenpm
+#
+#after_success:
+#  # build out each image
+#  - docker build -t efamanas/hungry-discord-app .
+#
+#deploy:
+#  edge: true
+#  provider: elasticbeanstalk
+#  region: "eu-west-2"
+#  app: "complex"
+#  env: "Complex-env"
+#  bucket_name: "complex-env.eba-kbi2ri2j.eu-west-2.elasticbeanstalk.com"
+#  bucket_path: "complex"
+#  on:
+#    branch: master
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
