@@ -10,7 +10,7 @@ before_install:
 
 script:
   # run tests
-  - docker run -e CI=true efamanas/hungry-discord-app npm test -- --coveragenpm
+  - docker run -e CI=true efamanas/hungry-discord-app npm test
 
 after_success:
   # build out each image
