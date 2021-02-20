@@ -1,11 +1,13 @@
 import {injectable} from "inversify";
 
 @injectable()
-export class PingFinder {
+export class PingHandler {
 
-    private regexp = 'ping';
+    private regexp = "ping";
 
     public isPing(stringToSearch: string): boolean {
         return stringToSearch.search(this.regexp) >= 0;
     }
+
+    public static pong = "pong!"
 }

@@ -1,21 +1,28 @@
 import {Message} from "discord.js";
-import {PingFinder} from "./ping-finder";
+import {PingHandler} from "./ping-handler";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
+import {HelpHandler} from "./help-handler";
 
 @injectable()
 export class MessageResponder {
-    private pingFinder: PingFinder;
+    private readonly pingHandler: PingHandler;
+    private readonly helpHandler: HelpHandler;
 
     constructor(
-        @inject(TYPES.PingFinder) pingFinder: PingFinder
+        @inject(TYPES.PingFinder) pingHandler: PingHandler,
+        @inject(TYPES.HelpFinder) helpHandler: HelpHandler
     ) {
-        this.pingFinder = pingFinder;
+        this.pingHandler = pingHandler;
+        this.helpHandler = helpHandler;
     }
 
-    handle(message: Message): Promise<Message | Message[]> {
-        if (this.pingFinder.isPing(message.content)) {
-            return message.reply('pong!');
+    public handle(message: Message): Promise<Message | Message[]> {
+        if (this.pingHandler.isPing(message.content)) {
+            return message.reply(PingHandler.pong);
+        }
+        if (this.helpHandler.isHelp(message.content)) {
+            return message.reply(HelpHandler.help)
         }
         return Promise.reject();
     }

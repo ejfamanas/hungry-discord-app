@@ -24,6 +24,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/src/services/ping-finder.ts">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/tests/services/message-responder.spec.ts">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/tests/services/ping-finder.spec.ts">
           <value>
             <Attribute>
