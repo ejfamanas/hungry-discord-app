@@ -20,11 +20,11 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: "eu-west-2"
-  app: "hungry-discord-app"
-  env: "hungry-discord-app-env"
+  app: "hungry"
+  env: "hungry-env"
 
   bucket_name: "elasticbeanstalk-eu-west-2-334805761658"
-  bucket_path: "hungry-discord-app"
+  bucket_path: "hungry"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
