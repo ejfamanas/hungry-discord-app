@@ -8,7 +8,6 @@ env:
   - TOKEN=$DISCORD_TOKEN
 
 before_install:
-  - echo $DISCORD_TOKEN
   - docker build -t efamanas/hungry-discord-app -f Dockerfile.dev .
 
 script:
