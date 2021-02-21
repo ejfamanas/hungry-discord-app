@@ -12,9 +12,9 @@ script:
   # run tests
   - docker run -e CI=true efamanas/hungry-discord-app npm test
 
-after_success:
-  # build out each image
-  - docker build -t efamanas/hungry-discord-app .
+#after_success:
+#  # build out each image
+#  - docker build -t efamanas/hungry-discord-app .
 
 # conf works using all branches hack
 # TODO: Nginx conf, docker compose conf, ship token
