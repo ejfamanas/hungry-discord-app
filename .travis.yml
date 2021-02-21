@@ -10,6 +10,9 @@ before_install:
 script:
   - docker run -e CI=true efamanas/hungry-discord-app npm run test
 
+after_success:
+  - docker build -t efamanas/hungry-discord-app .
+
 deploy:
   provider: elasticbeanstalk
   region: 'us-east-1'
