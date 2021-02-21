@@ -4,6 +4,9 @@ language: generic
 services:
   - docker
 
+env:
+  - TOKEN=$DISCORD_TOKEN
+
 before_install:
   - docker build -t efamanas/hungry-discord-app -f Dockerfile.dev .
 
@@ -11,7 +14,7 @@ script:
   - docker run -e CI=true efamanas/hungry-discord-app npm run test
 
 after_success:
-  - docker build -t efamanas/hungry-discord-app .
+  - docker build --build-arg TOKEN=$DISCORD_TOKEN -t efamanas/hungry-discord-app .
 
 deploy:
   edge: true
