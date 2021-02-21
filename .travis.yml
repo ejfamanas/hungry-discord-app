@@ -1,33 +1,25 @@
-# specify required permissions
 sudo: required
+language: generic
+
 services:
-  # specify required services
   - docker
 
 before_install:
-  # set up container for test environment
-  - docker build -t efamanas/hungry-discord-app -f ./Dockerfile.dev .
+  - docker build -t efamanas/hungry-discord-app -f Dockerfile.dev .
 
 script:
-  # run tests
-  - docker run -e CI=true efamanas/hungry-discord-app npm test
+  - docker run -e CI=true efamanas/hungry-discord-app npm run test
 
-#after_success:
-#  # build out each image
-#  - docker build -t efamanas/hungry-discord-app .
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-1'
+  app: 'discord'
+  env: 'Discord-env'
+  bucket_name: 'elasticbeanstalk-eu-west-2-334805761658"'
+  bucket_path: 'discord'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 
-# conf works using all branches hack
 # TODO: Nginx conf, docker compose conf, ship token
-#deploy:
-#  edge: true
-#  provider: elasticbeanstalk
-#  region: "eu-west-2"
-#  app: "hungry"
-#  env: "hungry-env"
-#
-#  bucket_name: "elasticbeanstalk-eu-west-2-334805761658"
-#  bucket_path: "hungry"
-#  on:
-#    all_branches: true
-#  access_key_id: $AWS_ACCESS_KEY
-#  secret_access_key: $AWS_SECRET_KEY
